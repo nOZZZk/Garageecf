@@ -40,9 +40,10 @@ require_once __DIR__ . "/templates/header.php";
         </div>
         <div class="col-lg-6">
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"><?=htmlentities($article["title"]) ?></h1>
-            <p class="price"><?=htmlentities($article["Prix"]) ?></p>
-            <p class="Year"><?=htmlentities($article["Année"]) ?></p>
             <p class="lead"><?=htmlentities($article["Content"]) ?></p>
+            <p class="price"><?=htmlentities($article["Prix"]) ?></p>
+            <p class="info"><?=htmlentities($article["Details"]) ?></p>
+
 
         </div>
     </div>

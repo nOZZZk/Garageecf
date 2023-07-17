@@ -1,8 +1,21 @@
-<head>
-<style type="text/css">
-  .TexteVert { /* Classe .TexteVert */
-  font-family: "Arial Black", Gadget, sans-serif; /* Police de caractére*/
-  color: #9C3; /* Couleur du texte*/
-  }
-</style>
-</head>
+.nav {
+  --bs-nav-link-padding-x: 1rem;
+  --bs-nav-link-padding-y: 0.5rem;
+  --bs-nav-link-font-weight: ;
+  --bs-nav-link-color: red(--bs-link-color);
+  --bs-nav-link-hover-color: red(--bs-link-hover-color);
+  --bs-nav-link-disabled-color: var(--bs-secondary-color);
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+
+}
+
+
+.nav-pills {
+  --bs-nav-pills-border-radius: var(--bs-border-radius);
+  --bs-nav-pills-link-active-color: #fff;
+  --bs-nav-pills-link-active-bg: #fd0d0d;
+}

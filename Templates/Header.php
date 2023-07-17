@@ -14,6 +14,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/override-bootstrap.css">
     <link rel="stylesheet" href="assets/css/Menu.php">
+    <link rel="stylesheet" href="assets/css/Menu.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 
@@ -25,18 +26,17 @@
                     <img src="assets/images/LOGO.png" alt="Garage Parrot" width="150">
                 </a>
             </div>
-
-            <ul class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <?php foreach ($mainMenu as $key => $menuItem) 
-                    if (!array_key_exists("exclude", $menuItem)) {
+                <ul class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                    <?php foreach ($mainMenu as $key => $menuItem) 
+                        if (!array_key_exists("exclude", $menuItem)) {
+                        ?>
+                        <li class="nav-item"><a href="<?=$key; ?>" class="nav-link px-2 <?php 
+                            if ($key === $currentPage) { echo "active"; }
+                            //echo ($key === $currentPage) ? "active" : "";
+                            
+                            ?>"><?=$menuItem["menu_title"]; ?></a></li>                    <?php }
                     ?>
-                    <li class="nav-item"><a href="<?=$key; ?>" class="nav-link px-2 <?php 
-                        if ($key === $currentPage) { echo "active"; }
-                        //echo ($key === $currentPage) ? "active" : "";
-                        
-                        ?>"><?=$menuItem["menu_title"]; ?></a></li>                    <?php }
-                ?>
-            </ul>
+                </ul>
 
             <div class="col-md-3 text-end">
             <a href="connexion.php" class="btn btn-outline-danger me-2">Login</a>
