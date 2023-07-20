@@ -1,4 +1,6 @@
 <?php
+    
+    require_once __DIR__ . "/../lib/session.php";
     $currentPage = basename($_SERVER["SCRIPT_NAME"]);
 
 ?>
@@ -9,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?=$mainMenu[$currentPage]["head_title"] ?></title>
+    
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/override-bootstrap.css">
@@ -39,8 +41,13 @@
                 </ul>
 
             <div class="col-md-3 text-end">
-            <a href="connexion.php" class="btn btn-outline-danger me-2">Login</a>
+                <?php if (isset($_SESSION["user"])) { ?>
+            <a href="logout.php" class="btn btn-outline-danger me-2">déconnexion</a>
+            <?php } else { ?>
+            <a href="connexion.php" class="btn btn-outline-danger me-2">Connexion</a>
             </div>
+            <?php } ?>
+
         </header>
 
 

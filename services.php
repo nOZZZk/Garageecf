@@ -39,7 +39,7 @@
                 <div class="feature-icon-small bi bi-car-front-fill d-inline-flex align-items-center justify-content-center text-bg-danger fs-1 rounded-3">
                 </svg>
                 </div>
-                <h4 class="fw-semibold mb-0 text-body-emphasis">Carosserie</h4>
+                <h4 class="fw-semibold mb-0 text-body-emphasis">Carrosserie</h4>
                 <p class="text-body-secondary">Pour refaire peau neuve</p>
             </div>
 
