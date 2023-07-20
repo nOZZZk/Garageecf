@@ -102,3 +102,47 @@ function getInfo(PDO $pdo, int $limit = null, int $page = null ):array
 
     return $Infos;
 }
+
+function getTotalArticles(PDO $pdo):int|bool
+{
+    $sql = "SELECT COUNT(*) as total FROM vehicule";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+
+    $result = $query->fetch(PDO::FETCH_ASSOC);
+    return $result['total'];
+}
+
+function saveArticle(PDO $pdo, string $title, string $content, string|null $image, int $category_id, int $id = null):bool 
+{
+    if ($id === null) {
+        $query = $pdo->prepare("INSERT INTO articles (title, content, image, category_id) "
+        ."VALUES(:title, :content, :image, :category_id)");
+    } else {
+        $query = $pdo->prepare("UPDATE `articles` SET `title` = :title, "
+        ."`content` = :content, "
+        ."image = :image, category_id = :category_id WHERE `id` = :id;");
+        
+        $query->bindValue(':id', $id, $pdo::PARAM_INT);
+    }
+
+    $query->bindValue(':title', $title, $pdo::PARAM_STR);
+    $query->bindValue(':content', $content, $pdo::PARAM_STR);
+    $query->bindValue(':image',$image, $pdo::PARAM_STR);
+    $query->bindValue(':category_id',$category_id, $pdo::PARAM_INT);
+    return $query->execute();  
+}
+
+function deleteArticle(PDO $pdo, int $id):bool
+{
+    
+    $query = $pdo->prepare("DELETE FROM articles WHERE id = :id");
+    $query->bindValue(':id', $id, $pdo::PARAM_INT);
+
+    $query->execute();
+    if ($query->rowCount() > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}

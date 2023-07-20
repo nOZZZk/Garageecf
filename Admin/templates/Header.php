@@ -1,5 +1,7 @@
 <?php
-
+require_once __DIR__ . "/../../lib/config.php";
+require_once __DIR__ . "/../../lib/session.php";
+adminOnly();
 $adminMenu = [
     'index.php' => 'Accueil',
     'articles.php' => 'Articles',
@@ -9,20 +11,20 @@ $adminMenu = [
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administration</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../assets/css/override-bootstrap.css">
 
+    <title>Admin </title>
 </head>
+
+
 
 <body>
     <div class="container d-flex">
@@ -32,7 +34,7 @@ $adminMenu = [
                 <span class="fs-4">Admin</span>
             </a>
             <hr>
-            <ul class="nav nav-pills- flex-column mb-auto">
+            <ul class="nav nav-pills flex-column mb-auto">
                 <?php foreach ($adminMenu as $page => $titre) { ?>
                     <li class="nav-item"><a href="<?= $page; ?>" class="nav-link text-white <?php if (basename($_SERVER['SCRIPT_NAME']) === $page) {
                                                                                         echo 'active';
